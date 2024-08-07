@@ -17,7 +17,6 @@ body {
     text-align: center;
 }
 
-
 main {
     position: relative;
     width: 100%;
@@ -40,9 +39,7 @@ header {
     text-align: left;
     text-indent: 3rem;
 
-    /* background-color: var(--todo-light-bg); */
-    background: url(./img/dark_mode.png) no-repeat center;
-    background-size: cover;
+    background-color: var(--todo-dark-bg);
 }
 
 header span {
@@ -67,6 +64,7 @@ header .question {
 header .todo-day {
     top: 30%;
 
+    color: #f06292;
     font-size: 3rem;
     font-weight: bolder;
 }
@@ -115,13 +113,20 @@ header .todo-date {
 }
 
 .todo-container .add-todo-container #add-todo-btn {
+    transition: all 0.8s;
     padding: 1em;
 }
 
-.todos-contanier {
-    /* width: 100%;
-    height: 50vh; */
+.todo-container .add-todo-container #add-todo-btn:hover {
+    cursor: pointer;
     
+    color: white;
+    background-color: #f06292;
+
+    border: 0.1px solid white;
+}
+
+.todos-contanier {    
     position: absolute;
     
     margin-top: 5rem;
@@ -172,10 +177,18 @@ header .todo-date {
 .todos-contanier .todos .todo .todo-txt {
     text-align: left;
     text-indent: 1em;
+
     width: 60%;
+
     padding: 1rem;
 
-    /* background-color: #f06292; */
+    outline: none;
+    border: none;
+}
+
+.todos-contanier .todos .todo .todo-txt:disabled {
+    background-color: white;
+    color: #222428;
 }
 
 .todos-contanier .todos .todo .btns-container {
@@ -204,37 +217,75 @@ header .todo-date {
 .todos-contanier .todos .todo .btns-container .todo-rm {
     color: white;
     background-color: red;
+    transition: all 0.5s;
+}
+
+.todos-contanier .todos .todo .btns-container .todo-rm:hover {
+    cursor: pointer;
+    background-color: darkred;
+    transform: scale(1.1);
 }
 
 .todos-contanier .todos .todo .btns-container .todo-mod {
     color: white;
-    background-color: darkcyan;
+    background-color: green;
+    transition: all 0.5s;
 }
 
-/* @media (orientation: portrait), (width: 1020px) {
+.todos-contanier .todos .todo .btns-container .todo-mod:hover {
+    cursor: pointer;
+    background-color: darkgreen;
+    transform: scale(1.1);
+}
+
+
+/* @media (min-width: 450px) {
+    
+} */
+
+@media (min-width: 768px) {
+    header {
+        background-color: var(--todo-dark-bg);
+        background: url(./img/dark_mode.png) no-repeat center;
+        background-size: cover;
+    }
+    
     .todo-container .add-todo-container #input-todo-text{
-
-        padding: 1.5em 6em 1.5em 2em;
-        margin-right: 1rem;
+        padding: 1rem 20rem 1rem 1rem;
     }
     
-    .todos-contanier .todos {
-        margin-top: 2rem;
-    }
+    /* .todo-container .add-todo-container #add-todo-btn {
 
-    .todos-contanier .todos .todo {    
-        width: 50%;
-        padding: .6rem;
-    }
-} */
+    } */
 
-/* @media (orientation: portrait), (max-width: 450px) {
+    .todos-contanier .todos .todo {
+        width: 45%;
     
+        padding: .4rem 0.8rem; 
+        
+        
+        background-color: var(--todo-light-bg);
+        border: 2px solid white;
+        outline: none;
+        border-radius: 0.3rem;
+    
+        font-weight: bold;
+    }
+    
+    .todos-contanier .todos .todo .todo-txt {
+        text-align: left;
+        text-indent: 1em;
+        width: 60%;
+        padding: 1rem;
+    }
+    
+    
+    .todos-contanier .todos .todo .btns-container {    
+        width: 40%;
+    
+        padding: 0.8em;
+    }
 }
-
-@media (orientation: portrait), (max-width: 715px) {
-    
-} */
 
 
 /* TODO: Make the mobile version first
