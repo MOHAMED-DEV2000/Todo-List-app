@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="./tmp.css">
     <title>Todo List</title>
 </head>
 <body>
-    <main class="container">
-        <h1 class="Todo-title">Here is your list</h1>
+    <main>
+        <header>
+            <span class="question">What's your plan for today?</span>
+            <span class="todo-day">Thursday</span>
+            <span class="todo-date">12/02/2024</span>
+        </header>
 
-        <div class="add-task-sec"> 
-            <input type="text" name="" id="input-text" placeholder="New task" >
-            <button id="add-btn">+</button>
-        </div>
+        <section class="todo-container">
+            <div class="add-todo-container"> 
+                <input type="text" id="input-todo-text" placeholder="Add a todo..." >
+                <button id="add-todo-btn">Add</button>
+            </div>
+    
+            <div class="todos-contanier">
+                <ul class="todos">
+                    <li class="todo">
+                        <span class="todo-txt">Todo</span>
+                        <div class="btns-container">
+                            <button class="btn todo-mod">Modify</button>
+                            <button class="btn todo-rm">Delete</button>
+                        </div>
+                    </li>
 
-        <div class="tasks-contanier">
-            <ul class="tasks"></ul>
-        </div>
+                    <li class="todo">
+                        <span class="todo-txt">Todo</span>
+                        <div class="btns-container">
+                            <button class="btn todo-mod">Modify</button>
+                            <button class="btn todo-rm">Delete</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <script src="/script.js"></script>
