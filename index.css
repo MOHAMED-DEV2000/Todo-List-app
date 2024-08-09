@@ -11,285 +11,180 @@
 }
 
 body {
-    font-family: Tahoma, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     background-color: var(--bg-color);
     color: white;
-    text-align: center;
 }
 
 main {
-    position: relative;
-    width: 100%;
-    height: 80vh;
+    width: 60%;
+    box-shadow: rgb(74, 74, 74) 5px 20px 50px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 0;
+    margin: 0 auto;
 }
 
-header {
-    position: absolute;
-
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    bottom: 60%;
+main header {
+    width: 100%;
 
     text-align: left;
-    text-indent: 3rem;
 
     background-color: var(--todo-dark-bg);
-}
+    /* background: url(./img/themes.png) center center none;
+    background-size: cover; */
 
-header span {
-    position: absolute;
-    
+    padding: 4em 0em 4em 2em;
+}
+main header span {
     display: block;
 
-    padding: 0.5rem 0rem;
-
-    text-transform: capitalize;
+    margin-bottom: .2em;
 }
 
-header .question {
-    top: 1%;
-    
-    margin-top: 1rem;
-
-    font-size: large;
+main header .question {
+    font-size: 20px;
     font-weight: bold;
 }
 
-header .todo-day {
-    top: 30%;
-
-    color: #f06292;
-    font-size: 3rem;
+main header .todo-day {
+    font-size: 40px;
     font-weight: bolder;
+    color: var(--bg-color);
 }
 
-header .todo-date {
-    bottom: 10%;
-
-    font-size: 0.8rem;
-    font-weight: lighter;
+main header .todo-date {
+    color: lightgray;
 }
 
-.todo-container {
-    position: absolute;
-    top: 40%;
-    left: 0%;
-    right: 0%;
-    
-    background-color: var(--todo-dark-bg);
+/* Todo conatiner styles */
+
+main .todo-container {
+    width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+
+    background-color: var(--todo-light-bg);
+
+    padding: 1em 2em;
 }
 
 .todo-container .add-todo-container {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    width: 100%;
 
-    padding: 1rem;
-    margin-top: auto;
+    padding: 1em 2em;
+    margin-bottom: 1em;
+
+    text-align: center;
 }
 
-.todo-container .add-todo-container #input-todo-text, .todo-container .add-todo-container #add-todo-btn {
-    border: none;
-    outline: none;
-    border-radius: 0.3rem;
+.todo-container .add-todo-container #input-todo-text {
+    width: 60%;
 
-    font-weight: bold;
-} 
-
-.todo-container .add-todo-container #input-todo-text{
-
-    padding: 1em 8em 1em 1em;
+    padding: 1em 2em;
     margin-right: 1rem;
-    
-    border: none;
-    outline: none;
-    border-radius: 0.3rem;
+}
+
+.todo-container .add-todo-container #input-todo-text::placeholder {
+    color: var(--bg-color);
 }
 
 .todo-container .add-todo-container #add-todo-btn {
-    transition: all 0.8s;
+    width: 15%;
+
     padding: 1em;
+    margin-left: auto;
+
+    transition: all .6s;
 }
 
-.todo-container .add-todo-container #add-todo-btn:hover {
+.todo-container .add-todo-container #add-todo-btn:hover,
+.todos-contanier .todos .todo .btns-container .btn:hover {
     cursor: pointer;
-    
-    color: white;
-    background-color: #f06292;
-
-    border: 0.1px solid white;
+    background-color: var(--bg-color);
+    color: var(--todo-dark-bg);
 }
 
-.todos-contanier {    
-    position: absolute;
-    
-    margin-top: 5rem;
+.todo-container .add-todo-container #add-todo-btn,
+.todo-container .add-todo-container #input-todo-text,
+.todos-contanier .todos .todo .btns-container .btn {
+    font-weight: bold;
+    outline: none;
+    border: #f06292 1px solid;
+    color: var(--bg-color);
+    background-color: var(--todo-dark-bg);
+}
 
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    
+/* Todos-container styles */
+
+.todos-contanier {
+    width: 100%;
+
+    padding: 1em 2em;
+    margin-bottom: 1em;
 }
 
 .todos-contanier .todos {
     width: 100%;
-    height: auto;
-
-    list-style: none;
 
     display: flex;
     flex-direction: column;
-    gap: 1rem 0rem;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-
-    /* background-color: aqua; */
-    padding: 1rem;
-}
-
-
-.todos-contanier .todos .todo {
-    display: flex;
     justify-content: space-around;
     align-content: center;
+
+    background-color: var(--todo-dark-bg);
+    border: 2px var(--bg-color) solid;
+}
+
+.todos-contanier .todos .todo {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    align-content: center;
 
-    width: 90%;
+    padding: .8em 1em;
+}
 
-    padding: .8rem;
-    
-    
-    background-color: var(--todo-light-bg);
-    border: 2px solid white;
-    outline: none;
-    border-radius: 0.3rem;
-
+.todos-contanier .todos .todo .todo-txt::placeholder{
     font-weight: bold;
+    color: var(--bg-color);
 }
 
 .todos-contanier .todos .todo .todo-txt {
-    text-align: left;
-    text-indent: 1em;
-
     width: 60%;
 
-    padding: 1rem;
+    padding: .8em 1em;
+
+    font-weight: bold;
+    color: var(--bg-color);
+    caret-color: var(--bg-color);
 
     outline: none;
     border: none;
-}
-
-.todos-contanier .todos .todo .todo-txt:disabled {
-    background-color: white;
-    color: #222428;
+    background-color: var(--todo-dark-bg);
 }
 
 .todos-contanier .todos .todo .btns-container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-content: center;
-
-    width: 40%;
-
-    padding: 0.8em;
+    align-items: center;
     
-    /* background-color: #3C424A; */
 }
 
 .todos-contanier .todos .todo .btns-container .btn {
-    outline: none;
-    border: none;
-    border-radius: .2rem;
+    margin-left: .8em;
+    padding: 1em;
 
-    padding: 0.5rem 0.5rem;
-
-    font-weight: bold;
+    transition: all .6s;
 }
 
-.todos-contanier .todos .todo .btns-container .todo-rm {
-    color: white;
-    background-color: red;
-    transition: all 0.5s;
-}
-
-.todos-contanier .todos .todo .btns-container .todo-rm:hover {
-    cursor: pointer;
-    background-color: darkred;
-    transform: scale(1.1);
-}
-
-.todos-contanier .todos .todo .btns-container .todo-mod {
-    color: white;
-    background-color: green;
-    transition: all 0.5s;
-}
-
-.todos-contanier .todos .todo .btns-container .todo-mod:hover {
-    cursor: pointer;
-    background-color: darkgreen;
-    transform: scale(1.1);
-}
-
-
-/* @media (min-width: 450px) {
-    
-} */
-
-@media (min-width: 768px) {
-    header {
-        background-color: var(--todo-dark-bg);
-        background: url(./img/dark_mode.png) no-repeat center;
-        background-size: cover;
-    }
-    
-    .todo-container .add-todo-container #input-todo-text{
-        padding: 1rem 20rem 1rem 1rem;
-    }
-    
-    /* .todo-container .add-todo-container #add-todo-btn {
-
-    } */
-
-    .todos-contanier .todos .todo {
-        width: 45%;
-    
-        padding: .4rem 0.8rem; 
-        
-        
-        background-color: var(--todo-light-bg);
-        border: 2px solid white;
-        outline: none;
-        border-radius: 0.3rem;
-    
-        font-weight: bold;
-    }
-    
-    .todos-contanier .todos .todo .todo-txt {
-        text-align: left;
-        text-indent: 1em;
-        width: 60%;
-        padding: 1rem;
-    }
-    
-    
-    .todos-contanier .todos .todo .btns-container {    
-        width: 40%;
-    
-        padding: 0.8em;
+@media (max-width: 920px) {
+    main {
+        width: 90%;
     }
 }
-
-
-/* TODO: Make the mobile version first
-    where the haeder has a color background
-    But when the size of the screen is big make it an image
-    Also Change the add task container for med and big screens
-    and lastlu=y the todos make the btns make them lok good too
