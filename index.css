@@ -133,7 +133,6 @@ main .todo-container {
     align-content: center;
 
     background-color: var(--todo-dark-bg);
-    border: 2px var(--bg-color) solid;
 }
 
 .todos-contanier .todos .todo {
@@ -144,6 +143,8 @@ main .todo-container {
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    
+    border: 1px var(--bg-color) solid;
 
     padding: .8em 1em;
 }
