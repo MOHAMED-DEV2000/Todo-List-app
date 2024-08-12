@@ -18,10 +18,12 @@ body {
 }
 
 main {
-    width: 60%;
+    width: 50%;
     box-shadow: rgb(74, 74, 74) 5px 20px 50px;
 
     margin: 0 auto;
+
+    position: relative;
 }
 
 main header {
@@ -34,6 +36,7 @@ main header {
     background-size: cover; */
 
     padding: 4em 0em 4em 2em;
+    margin-top: 1rem;
 }
 main header span {
     display: block;
@@ -52,8 +55,8 @@ main header .todo-day {
     color: var(--bg-color);
 }
 
-main header .todo-date {
-    color: lightgray;
+main header .todo-date{
+    color: gray;
 }
 
 /* Todo conatiner styles */
@@ -187,5 +190,6 @@ main .todo-container {
 @media (max-width: 920px) {
     main {
         width: 90%;
+        max-width: 1000px;
     }
 }

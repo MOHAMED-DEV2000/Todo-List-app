@@ -16,8 +16,8 @@ const updateTodoTime = () => {
     const day = String(currDate.getDate());
     const month = String(currDate.getMonth() + 1);
     const year = String(currDate.getFullYear());
-    const dayName = daysOfWeek[currDate.getDay() - 1]; // Turns the int returned by getDay into the correpondant day in the daysofWeek array
 
+    const dayName = daysOfWeek[currDate.getDay() - 1]; // Turns the int returned by getDay into the correpondant day in the daysofWeek array
     todoDay.textContent = dayName;
 
     Number(day) > 9 ? dateDay.textContent = day : dateDay.textContent = "0" + day;
