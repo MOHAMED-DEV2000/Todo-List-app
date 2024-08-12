@@ -2,6 +2,31 @@ let addBtn = document.getElementById("add-todo-btn");
 let inputText = document.getElementById("input-todo-text");
 let todosList = document.querySelector(".todos");
 
+let todoDay = document.querySelector(".todo-day");
+let dateDay = document.querySelector(".day");
+let dateMonth = document.querySelector(".month");
+let dateYear = document.querySelector(".year");
+
+
+// Update current todo list day and date
+const updateTodoTime = () => {
+    let currDate = new Date();
+    const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    const day = String(currDate.getDate());
+    const month = String(currDate.getMonth() + 1);
+    const year = String(currDate.getFullYear());
+    const dayName = daysOfWeek[currDate.getDay() - 1]; // Turns the int returned by getDay into the correpondant day in the daysofWeek array
+
+    todoDay.textContent = dayName;
+
+    Number(day) > 9 ? dateDay.textContent = day : dateDay.textContent = "0" + day;
+    Number(month) > 9 ? dateMonth.textContent = month : dateMonth.textContent = "0" + month;
+    dateYear.textContent = year;
+}
+
+updateTodoTime();
+
 // We get the curr input filed text size
 function inputLength() {
     return inputText.value.length;
