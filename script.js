@@ -8,6 +8,48 @@ let dateMonth = document.querySelector(".month");
 let dateYear = document.querySelector(".year");
 
 
+// Add Random quotes
+document.addEventListener('DOMContentLoaded', () => {
+    const quoteSpan = document.querySelector('.quote');
+
+    const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+    function setQuote(quote) {
+        quoteSpan.textContent = quote.text;
+        localStorage.setItem('quote', JSON.stringify({
+            text: quote.text,
+            timestamp: Date.now()
+        }));
+    }
+
+    function fetchNewQuote() {
+        fetch('https://type.fit/api/quotes')
+            .then(response => response.json())
+            .then(quotes => {
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                const randomQuote = quotes[randomIndex];
+                setQuote(randomQuote);
+            })
+            .catch(error => {
+                console.error('Error fetching the quotes:', error);
+                quoteSpan.textContent = "Could not load a quote. Please try again.";
+            });
+    }
+
+    function loadQuote() {
+        const storedQuote = JSON.parse(localStorage.getItem('quote'));
+
+        if (storedQuote && (Date.now() - storedQuote.timestamp) < oneDay) {
+            quoteSpan.textContent = storedQuote.text;
+        } else {
+            fetchNewQuote();
+        }
+    }
+
+    loadQuote();
+});
+
+
 // Update current todo list day and date
 const updateTodoTime = () => {
     let currDate = new Date();
